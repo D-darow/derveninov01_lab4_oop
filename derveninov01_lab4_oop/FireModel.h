@@ -11,7 +11,11 @@ private:
 public:
 	long int GetFireDuration();
 	FireModel(SensorCO* sensorCO, Pyrometr* pyrometr);
-	void StartModeling();
+	bool StartModeling();
+	// Метод генерации советов по ликвидации
+	std::string GenerateEmergencyResponseTips();
+	// Метод генерации возможных последствий
+	std::string GeneratePossibleEmergencyConsequences();
 	~FireModel();
 };
 

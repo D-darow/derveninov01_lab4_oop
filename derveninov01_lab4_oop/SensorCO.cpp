@@ -1,8 +1,9 @@
 #include "SensorCO.h"
 // Конструктор
-SensorCO::SensorCO(double latitude, double longitude)
+SensorCO::SensorCO(double latitude, double longitude, double criticalReadings)
 {
 	SetCoordinates(latitude, longitude);
+	this->CriticalReadings = criticalReadings;
 	CollectReadings();
 }
 // Получить концентрацию угарного газа в воздухе

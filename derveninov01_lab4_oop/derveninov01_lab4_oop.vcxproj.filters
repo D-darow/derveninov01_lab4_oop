@@ -24,9 +24,6 @@
     <ClCompile Include="EmergencyModel.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="FireForecastingStation.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="SensorCO.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -36,7 +33,13 @@
     <ClCompile Include="FireModel.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="FireForecastingStationProxy.cpp">
+    <ClCompile Include="WaterLevelSensor.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FloodModel.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FireModelProxy.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -45,9 +48,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="EmergencyModel.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="FireForecastingStation.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="SensorCO.h">
@@ -59,10 +59,13 @@
     <ClInclude Include="FireModel.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="IForecastingStation.h">
+    <ClInclude Include="WaterLevelSensor.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="FireForecastingStationProxy.h">
+    <ClInclude Include="FloodModel.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="FireModelProxy.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

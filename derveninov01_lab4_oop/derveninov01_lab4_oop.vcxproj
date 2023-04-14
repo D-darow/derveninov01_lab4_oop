@@ -129,22 +129,23 @@
   <ItemGroup>
     <ClCompile Include="derveninov01_lab4_oop.cpp" />
     <ClCompile Include="EmergencyModel.cpp" />
-    <ClCompile Include="FireForecastingStation.cpp" />
-    <ClCompile Include="FireForecastingStationProxy.cpp" />
     <ClCompile Include="FireModel.cpp" />
+    <ClCompile Include="FireModelProxy.cpp" />
+    <ClCompile Include="FloodModel.cpp" />
     <ClCompile Include="Pyrometr.cpp" />
     <ClCompile Include="Sensor.cpp" />
     <ClCompile Include="SensorCO.cpp" />
+    <ClCompile Include="WaterLevelSensor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EmergencyModel.h" />
-    <ClInclude Include="FireForecastingStation.h" />
-    <ClInclude Include="FireForecastingStationProxy.h" />
     <ClInclude Include="FireModel.h" />
-    <ClInclude Include="IForecastingStation.h" />
+    <ClInclude Include="FireModelProxy.h" />
+    <ClInclude Include="FloodModel.h" />
     <ClInclude Include="Pyrometr.h" />
     <ClInclude Include="Sensor.h" />
     <ClInclude Include="SensorCO.h" />
+    <ClInclude Include="WaterLevelSensor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
