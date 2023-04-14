@@ -25,7 +25,17 @@ void EmergencyModel::SetPossibleVictims(int possibleVictims)
 	this->PossibleVictims = possibleVictims;
 }
 
+void EmergencyModel::SetEmergencyHappened(bool emergencyHappened)
+{
+	EmergencyHappened = emergencyHappened;
+}
+
 int EmergencyModel::GetPossibleVictims()
 {
 	return PossibleVictims;
+}
+
+bool EmergencyModel::GetEmergencyHappened()
+{
+	return EmergencyHappened;
 }

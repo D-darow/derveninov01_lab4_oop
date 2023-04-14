@@ -1,30 +1,19 @@
-#include <iostream>
-#include "FireModel.h"
+#include "FloodModel.h"
 
-long int FireModel::GetFireDuration()
-{
-	return FireDuration;
-}
-
-FireModel::FireModel(SensorCO* sensorCO, Pyrometr* pyrometr)
-	: pSensorCO(sensorCO), pPyrometr(pyrometr)
+FloodModel::FloodModel(WaterLevelSensor* waterLevelSensor) 
+	: pWaterLevelSensor(waterLevelSensor)
 {
 	this->SetEmergencyProbability(0);
 	this->SetEmergencyScale("");
 	this->SetPossibleVictims(0);
-	this->SetEmergencyHappened(false);
-	FireDuration = 0;
 }
 
-bool FireModel::StartModeling()
+bool FloodModel::StartModeling()
 {
-	pSensorCO->CollectReadings();
-	pPyrometr->CollectReadings();
-	double readingsCO = pSensorCO->GetReadings();
-	double criticalReadingsCO = pSensorCO->GetCriticalReadings();
-	int temperature = pPyrometr->GetTemperature();
-	int criticalTemperature = pPyrometr->GetCriticalTemperature();
-	if (temperature > criticalTemperature && readingsCO > criticalReadingsCO)
+	pWaterLevelSensor->CollectReadings();
+	int waterLevel = pWaterLevelSensor->GetWaterLevel();
+	int criticalWaterLevel = pWaterLevelSensor->GetCriticalWaterLevel();
+	if (waterLevel > criticalWaterLevel)
 	{
 		this->SetEmergencyProbability(100);
 		this->SetEmergencyScale("Значительный");
@@ -32,7 +21,7 @@ bool FireModel::StartModeling()
 		this->FireDuration = rand() % 100 + 50;
 		this->SetEmergencyHappened(true);
 	}
-	else if (temperature > criticalTemperature / 2 || readingsCO > criticalReadingsCO / 2)
+	else if (waterLevel > criticalWaterLevel / 2)
 	{
 		this->SetEmergencyProbability(rand() % 51 + 50.0);
 		this->SetEmergencyScale("Значительный");
@@ -48,34 +37,34 @@ bool FireModel::StartModeling()
 		this->FireDuration = rand() % 10 + 1;
 		this->SetEmergencyHappened(false);
 	}
-	std::cout << "Модель пожара завершила работу." << std::endl;
+	std::cout << "Модель наводнения завершила работу." << std::endl;
 	return this->GetEmergencyHappened();
 }
 
-std::string FireModel::GenerateEmergencyResponseTips()
+std::string FloodModel::GenerateEmergencyResponseTips()
 {
 	std::string result;
 	int tmp;
 	if (GetEmergencyScale() == "Значительный")
 	{
-		result = "Т.к. масштаб пожара значительный, то для его ликвидации потребуется:\n";
+		result = "Т.к. масштаб наводнения значительный, то для его ликвидации потребуется:\n";
 		tmp = rand() % 80 + 20;
-		result += std::to_string(tmp) + " пожарных машин;\n";
+		result += std::to_string(tmp) + " лодок;\n";
 		tmp = rand() % 20 + 10;
 		result += std::to_string(tmp) + " вертолетов.";
 	}
 	else
 	{
-		result = "Т.к. масштаб пожара незначительный, то для его ликвидации потребуется:\n";
+		result = "Т.к. масштаб наводнения незначительный, то для его ликвидации потребуется:\n";
 		tmp = rand() % 10 + 1;
-		result += std::to_string(tmp) + " пожарных машин;\n";
+		result += std::to_string(tmp) + " лодок;\n";
 		tmp = rand() % 5;
 		result += std::to_string(tmp) + " вертолетов.";
 	}
 	return result;
 }
 
-std::string FireModel::GeneratePossibleEmergencyConsequences()
+std::string FloodModel::GeneratePossibleEmergencyConsequences()
 {
 	std::string result;
 	if (GetEmergencyScale() == "Значительный")
@@ -88,5 +77,3 @@ std::string FireModel::GeneratePossibleEmergencyConsequences()
 	}
 	return result;
 }
-
-FireModel::~FireModel() {}

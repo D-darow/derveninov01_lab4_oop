@@ -1,8 +1,9 @@
 #include "Pyrometr.h"
 
-Pyrometr::Pyrometr(double latitude, double longitude)
+Pyrometr::Pyrometr(double latitude, double longitude, int criticalTemperature)
 {
 	SetCoordinates(latitude, longitude);
+	this->CriticalTemperature = criticalTemperature;
 	CollectReadings();
 }
 
