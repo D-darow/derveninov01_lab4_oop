@@ -30,7 +30,7 @@ bool FloodModel::StartModeling()
 	}
 	else
 	{
-		this->SetEmergencyProbability(rand() % 10 + 0.0);
+		this->SetEmergencyProbability(rand() % 10 + 1.0);
 		this->SetEmergencyScale("Незначительный");
 		this->SetPossibleVictims(rand() % 100);
 		this->SetEmergencyHappened(false);

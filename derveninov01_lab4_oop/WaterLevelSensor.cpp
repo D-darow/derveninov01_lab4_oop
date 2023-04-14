@@ -9,7 +9,7 @@ WaterLevelSensor::WaterLevelSensor(double latitude, double longitude, int critic
 
 void WaterLevelSensor::CollectReadings()
 {
-	WaterLevel = rand() % 20 - 20;
+	WaterLevel = rand() % 40 - 20;
 }
 
 void WaterLevelSensor::SetCriticalWaterLevel(int criticalWaterLevel)
